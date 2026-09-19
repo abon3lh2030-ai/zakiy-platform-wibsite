@@ -186,8 +186,48 @@
     color: var(--ink-soft);
     font-size: 13px;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
   footer a { color: var(--teal); text-decoration: none; }
+  .platform-cr-link {
+    position: fixed;
+    right: 164px;
+    left: auto;
+    bottom: 18px;
+    z-index: 850;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 1px 0 rgba(27,42,74,.03);
+  }
+  .platform-cr-link { transition: border-color .2s, transform .12s; }
+  .platform-cr-link:hover,
+  .platform-cr-link:focus-visible {
+    border-color: var(--teal);
+    transform: translateY(-1px);
+    outline: none;
+  }
+  .platform-cr-number {
+    color: var(--teal);
+    font-size: 14px;
+    letter-spacing: .35px;
+  }
+  .sbc-verify-seal {
+    display: none !important;
+  }
+  @media (max-width: 420px) {
+    .platform-cr-link { right: 12px; left: auto; bottom: 76px; }
+  }
 </style>
 </head>
 <body>
@@ -237,9 +277,16 @@
   </a>
 
   <footer>
-    ذكيّ — منصة المذاكرة الذكية
+    <div>ذكيّ — منصة المذاكرة الذكية</div>
+    <a class="platform-cr-link" href="assets/documents/commercial-registration-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="عرض شهادة السجل التجاري رقم 7055047331">
+      <span>السجل التجاري</span>
+      <strong class="platform-cr-number" dir="ltr">7055047331</strong>
+    </a>
+    <div class="sbc-verify-seal" data-token="OCtHWE9LU05FZS9DVmE3ZGE0ZG9mdz09" data-position="bottom-right"></div>
   </footer>
 </div>
+
+<script src="https://eauthenticate.saudibusiness.gov.sa/EAuthSealApi/seal.js" async></script>
 
 <script>
   const root = document.documentElement;
